@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "safeagents"
+version = "0.1.0"
+description = "A framework for building and evaluating safe multi-agent systems"
+authors = [
+  { name = "Microsoft Research", email = "research@microsoft.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+  "aiofiles",
+  "autogen-agentchat",
+  "autogen-core",
+  "autogen-ext[magentic-one,openai]",
+  "azure-identity",
+  "datasets",
+  "langchain",
+  "langchain-community",
+  "langchain-openai",
+  "langgraph",
+  "langgraph-supervisor",
+  "langgraph-swarm",
+  "markitdown",
+  "openai",
+  "openai-agents",
+  "pillow",
+  "python-dotenv",
+  "rich",
+  "termcolor",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/microsoft/SafeAgents"
+"Bug Tracker" = "https://github.com/microsoft/SafeAgents/issues"
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-playwright"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["safeagents*"]
+
+[tool.setuptools.package-data]
+"safeagents.datasets.asb" = [
+  "*.json",
+  "*.md",
+  "master100_release/*.csv",
+  "master100_release/*.json",
+  "master100_release/*.jsonl",
+  "master100_release/*.md",
+]
