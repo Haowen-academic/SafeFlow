@@ -1,4 +1,4 @@
-# SafeAgents ( also called `SafeAgentEval` )
+# SafeAgents
 
 > **A unified framework for building and evaluating safe multi-agent systems**
 
