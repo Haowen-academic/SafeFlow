@@ -1,0 +1,82 @@
+{
+  "dataset_name": "master100",
+  "record_format": "flat",
+  "field_order": [
+    "sample_id",
+    "block",
+    "agent_name",
+    "dataset_index",
+    "attack_type",
+    "attack_tool",
+    "attack_goal",
+    "base_instruction",
+    "attack_instruction",
+    "prompt",
+    "target_functions",
+    "baseline_attack_success",
+    "no_step2_attack_success",
+    "full5_attack_success"
+  ],
+  "fields": {
+    "sample_id": {
+      "type": "string",
+      "format": "<agent_name>:<dataset_index>"
+    },
+    "block": {
+      "type": "string",
+      "enum": [
+        "block_a",
+        "block_b"
+      ]
+    },
+    "agent_name": {
+      "type": "string"
+    },
+    "dataset_index": {
+      "type": "integer"
+    },
+    "attack_type": {
+      "type": "string"
+    },
+    "attack_tool": {
+      "type": "string"
+    },
+    "attack_goal": {
+      "type": "string"
+    },
+    "base_instruction": {
+      "type": "string"
+    },
+    "attack_instruction": {
+      "type": "string"
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "target_functions": {
+      "type": "array[string]",
+      "csv_encoding": "semicolon-delimited string"
+    },
+    "baseline_attack_success": {
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "no_step2_attack_success": {
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "full5_attack_success": {
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ]
+    }
+  }
+}

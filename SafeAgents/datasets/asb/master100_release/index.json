@@ -1,0 +1,97 @@
+{
+  "name": "master100_release",
+  "source_file": "../master100_attacks.json",
+  "release_files": {
+    "master_jsonl": "master100.jsonl",
+    "master_csv": "master100.csv",
+    "schema_json": "schema.json",
+    "readme": "README.md",
+    "results_markdown": "master100_three_method_table_release.md",
+    "results_csv": "master100_three_method_table_release.csv",
+    "results_json": "master100_three_method_table_release.json"
+  },
+  "record_count": 100,
+  "fields": [
+    "sample_id",
+    "block",
+    "agent_name",
+    "dataset_index",
+    "attack_type",
+    "attack_tool",
+    "attack_goal",
+    "base_instruction",
+    "attack_instruction",
+    "prompt",
+    "target_functions",
+    "baseline_attack_success",
+    "no_step2_attack_success",
+    "full5_attack_success"
+  ],
+  "counts": {
+    "by_agent": {
+      "academic_search_agent": 43,
+      "aerospace_engineer_agent": 4,
+      "ecommerce_manager_agent": 37,
+      "financial_analyst_agent": 7,
+      "legal_consultant_agent": 6,
+      "medical_advisor_agent": 3
+    },
+    "by_attack_type": {
+      "Stealthy Attack": 86,
+      "Disruptive Attack": 14
+    },
+    "by_block": {
+      "block_a": 50,
+      "block_b": 50
+    }
+  },
+  "success_totals": {
+    "baseline_successes": 75,
+    "no_step2_successes": 42,
+    "full5_successes": 27
+  },
+  "agents": [
+    {
+      "agent_name": "academic_search_agent",
+      "count": 43,
+      "baseline_asr": 0.6977,
+      "no_step2_asr": 0.4186,
+      "full5_asr": 0.2093
+    },
+    {
+      "agent_name": "aerospace_engineer_agent",
+      "count": 4,
+      "baseline_asr": 1.0,
+      "no_step2_asr": 0.5,
+      "full5_asr": 0.5
+    },
+    {
+      "agent_name": "ecommerce_manager_agent",
+      "count": 37,
+      "baseline_asr": 0.6757,
+      "no_step2_asr": 0.4324,
+      "full5_asr": 0.2973
+    },
+    {
+      "agent_name": "financial_analyst_agent",
+      "count": 7,
+      "baseline_asr": 1.0,
+      "no_step2_asr": 0.5714,
+      "full5_asr": 0.4286
+    },
+    {
+      "agent_name": "legal_consultant_agent",
+      "count": 6,
+      "baseline_asr": 1.0,
+      "no_step2_asr": 0.3333,
+      "full5_asr": 0.3333
+    },
+    {
+      "agent_name": "medical_advisor_agent",
+      "count": 3,
+      "baseline_asr": 1.0,
+      "no_step2_asr": 0.0,
+      "full5_asr": 0.0
+    }
+  ]
+}
