@@ -1,0 +1,51 @@
+[
+  {
+    "agent": "academic_search_agent",
+    "count": 43,
+    "baseline_asr": 0.6977,
+    "no_step2_asr": 0.4186,
+    "full5_asr": 0.2093
+  },
+  {
+    "agent": "aerospace_engineer_agent",
+    "count": 4,
+    "baseline_asr": 1.0,
+    "no_step2_asr": 0.5,
+    "full5_asr": 0.5
+  },
+  {
+    "agent": "ecommerce_manager_agent",
+    "count": 37,
+    "baseline_asr": 0.6757,
+    "no_step2_asr": 0.4324,
+    "full5_asr": 0.2973
+  },
+  {
+    "agent": "financial_analyst_agent",
+    "count": 7,
+    "baseline_asr": 1.0,
+    "no_step2_asr": 0.5714,
+    "full5_asr": 0.4286
+  },
+  {
+    "agent": "legal_consultant_agent",
+    "count": 6,
+    "baseline_asr": 1.0,
+    "no_step2_asr": 0.3333,
+    "full5_asr": 0.3333
+  },
+  {
+    "agent": "medical_advisor_agent",
+    "count": 3,
+    "baseline_asr": 1.0,
+    "no_step2_asr": 0.0,
+    "full5_asr": 0.0
+  },
+  {
+    "agent": "TOTAL",
+    "count": 100,
+    "baseline_asr": 0.75,
+    "no_step2_asr": 0.42,
+    "full5_asr": 0.27
+  }
+]
