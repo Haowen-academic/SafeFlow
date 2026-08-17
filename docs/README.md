@@ -29,6 +29,8 @@ In-depth guides for each feature:
 - **[Running Datasets](guides/running-datasets.md)** - Benchmarks and checkpointing
 - **[Assessment (ARIA/DHARMA)](guides/assessment.md)** - Safety evaluation metrics
 - **[Attack Detection](guides/attack-detection.md)** - Detecting harmful behavior
+- **[SafeFlow Paper Experiments](paper-experiments.md)** - Reproduce SafeFlow experiments
+- **[Paper Experiment Coverage](paper-experiment-coverage.md)** - Runnable scope and official-evaluation dependencies
 
 ### Advanced
 - **[Architectures](guides/architectures.md)** - Centralized vs Decentralized

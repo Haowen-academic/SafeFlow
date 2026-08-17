@@ -9,6 +9,7 @@ Repository: [Haowen-academic/SafeFlow](https://github.com/Haowen-academic/SafeFl
 - `safeagents/core/src/safety/safeflow_research.py`: SafeFlow implementation.
 - `safeagents/core/src/safety/recent_baselines.py`: benchmark-adapted baseline defenses.
 - `safeagents/core/src/evaluation/unified_5way_comparison.py`: five-method comparison runner.
+- `safeagents/core/src/evaluation/paper_experiments.py`: paper-experiment harness for the main comparison, robustness, sensitivity, ablation, and statistics conditions.
 - `safeagents/datasets/asb/master100_release/`: released 100-sample ASB-derived artifact and aggregate results.
 - `docs/examples/06_safeflow_demo.py`: deterministic SafeFlow walkthrough.
 - `docs/examples/07_safeflow_experiments.py`: configurable experiment runner.
@@ -40,6 +41,16 @@ python -m pytest -q
 python docs/examples/06_safeflow_demo.py --example 1
 ```
 
+To validate the paper-experiment harness without invoking a model provider:
+
+```bash
+python -m pytest tests/test_paper_experiments.py tests/test_safeflow_release.py -q
+python -m safeagents.core.src.evaluation.paper_experiments main --limit 1 --offline --output-dir build_check/paper_smoke
+```
+
+Offline mode checks the input, condition, and result-accounting pipeline only.
+It produces no measured benchmark result.
+
 ## Run SafeFlow Examples
 
 ```bash
@@ -63,9 +74,19 @@ python -m safeagents.core.src.evaluation.unified_5way_comparison \
 
 The release artifact contains the selected samples, schema, and aggregate results. It is not a replacement for the upstream ASB benchmark. External benchmark collections and third-party baseline repositories are intentionally not included.
 
+## Paper Experiments
+
+The public release includes the compact ASB-100 input. The full four-benchmark
+protocol (ASB, AgentHarm, RedCode, and SafeArena) requires separately obtained
+benchmark inputs, native evaluators, and the original third-party baseline
+implementations. See [the experiment protocol](docs/paper-experiments.md) and
+[coverage notes](docs/paper-experiment-coverage.md) before reporting results.
+
 ## Documentation
 
 - [SafeFlow release notes](docs/safeflow-release.md)
+- [Paper experiment protocol](docs/paper-experiments.md)
+- [Paper experiment coverage](docs/paper-experiment-coverage.md)
 - [Installation guide](docs/getting-started/installation.md)
 - [Getting started](docs/getting-started/first-agent.md)
 - [Examples](docs/examples/README.md)

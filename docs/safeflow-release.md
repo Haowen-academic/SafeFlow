@@ -10,6 +10,7 @@ This repository contains the SafeFlow implementation used to study information-f
 - `docs/examples/06_safeflow_demo.py`: a simulated SafeFlow walkthrough.
 - `docs/examples/07_safeflow_experiments.py`: a configurable experiment runner.
 - `safeagents/core/src/evaluation/unified_5way_comparison.py`: the five-method comparison runner.
+- `docs/paper-experiments.md`: the paper-experiment protocol, commands, and result-accounting rules.
 
 ## Installation
 
@@ -46,3 +47,8 @@ python -m safeagents.core.src.evaluation.unified_5way_comparison \
 ```
 
 The published Master100 files record the selected samples and aggregate outcomes. They are not a substitute for the upstream ASB benchmark. The full external benchmark collections and copied third-party baseline repositories are intentionally excluded from this repository; obtain and use them under their respective licenses.
+
+For the complete paper protocol (main comparison, robustness, ablations, and
+statistics), see [Paper experiment reproduction](paper-experiments.md).
+For the boundary between this repository's runnable adapters and official
+benchmark reproductions, see [experiment coverage](paper-experiment-coverage.md).

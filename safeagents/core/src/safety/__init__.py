@@ -5,6 +5,7 @@ Safety mechanisms for SafeAgents.
 from .mitigation import Mitigation
 from .recent_baselines import (
     AutoDefenseASB,
+    AegisLLMLite,
     GuardAgentLite,
     SafeAgentsLiteBaseline,
     DefenseDecision,
@@ -24,6 +25,7 @@ from .safeflow_research import (
 __all__ = [
     "Mitigation",
     "AutoDefenseASB",
+    "AegisLLMLite",
     "GuardAgentLite",
     "SafeAgentsLiteBaseline",
     "DefenseDecision",

@@ -1,0 +1,24 @@
+# Local credentials
+.env
+.env.*
+!.env.example
+
+# Python and test artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Generated experiment artifacts
+build/
+build_check/
+dist/
+logs/
+outputs/
+*.log
+*.tmp

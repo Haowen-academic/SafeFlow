@@ -19,12 +19,26 @@ from safeagents.core.src.evaluation.unified_eval_loader import load_eval_rows
 from safeagents.core.src.datasets import DatasetRegistry
 from safeagents.core.src.frameworks.base import Team
 from safeagents.core.src.frameworks.architectures import Architecture
-from safeagents.core.src.safety import SafeFlow, AutoDefenseASB, GuardAgentLite, SafeAgentsLiteBaseline
+from safeagents.core.src.safety import (
+    AegisLLMLite,
+    AutoDefenseASB,
+    GuardAgentLite,
+    SafeAgentsLiteBaseline,
+    SafeFlow,
+)
 import safeagents.datasets  # noqa: F401
 
 
 DEFAULT_DATASET = Path("safeagents/datasets/asb/master100_release/master100.jsonl")
-METHODS = ["baseline_vanilla", "safeflow_full5", "safeflow_no_step2", "safeagents_lite", "guardagent_lite", "autodefense_asb"]
+METHODS = [
+    "baseline_vanilla",
+    "safeflow_full5",
+    "safeflow_no_step2",
+    "safeagents_lite",
+    "guardagent_lite",
+    "autodefense_asb",
+    "aegisllm_lite",
+]
 
 
 def ensure_framework_registered(framework: str) -> None:
@@ -158,6 +172,8 @@ def _write_checkpoint(output_dir: Path, outputs: List[Dict[str, Any]], errors: L
 
 
 def build_method(method: str):
+    if method == "baseline_vanilla":
+        return None
     if method == "safeflow_full5":
         return SafeFlow(config={
             "confidence_threshold": 0.3,
@@ -194,6 +210,8 @@ def build_method(method: str):
         return GuardAgentLite(config={"enable_llm_judge": False})
     if method == "autodefense_asb":
         return AutoDefenseASB(config={"enable_llm_judge": False})
+    if method == "aegisllm_lite":
+        return AegisLLMLite(config={"enable_llm_judge": False})
     raise ValueError(method)
 
 
@@ -202,7 +220,20 @@ async def run_task(row: Dict[str, Any], framework: str, architecture: str, metho
     attack_detector = create_attack_detector(row)
     runner = build_method(method)
 
-    if method.startswith("safeflow_"):
+    if method == "baseline_vanilla":
+        execution_result = _normalize_execution_result(
+            await team.run(
+                task=row["prompt"],
+                verbose=False,
+                attack_detector=attack_detector,
+            )
+        )
+        result_dict = execution_result
+        attack_success = int(bool(execution_result.get("attack_detected")))
+        blocked = False
+        stage = "completed"
+        reason = "Undefended team execution completed."
+    elif method.startswith("safeflow_"):
         result = await runner.run_safe_task(
             task=row["prompt"],
             team=team,
